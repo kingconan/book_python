@@ -44,13 +44,13 @@
 
 我们来看看`UserSpider.py`里是怎样的
 
-```
+```py
 class UserSpider(scrapy.Spider):
-    name = "user"
-    
+    name = "user" #爬虫名字，命令调用时依据此, scrap crawl user
+
     def start_requests(self):
         yield scrapy.Request(url=self.login_url, headers=self.headers, callback=self.login)
-        
+
     def login(self, response0:
         pass
 ```
