@@ -1,5 +1,7 @@
 # Scrapy简介
 
+---
+
 好吧，这种简介[官方](https://doc.scrapy.org/en/latest/topics/architecture.html)最简单明了。
 
 如果我来说，scarpy提供了一个基本的框架，让爬虫使用者只关注核心的业务逻辑，包括请求的收集，数据的解析。然后也提供了必要的middleware或者callback机制，允许我们干扰或自定义爬虫的基本处理方式。
@@ -8,7 +10,11 @@
 
 开始之前，根据官方指导，安装scrapy，本人的开发环境是Mac+python2.7+pycharm。同时存储我这里使用的是mongodb，所以安装mogondb和pymongo。
 
+# 
+
 # 示例
+
+---
 
 通过scarpy建立zhihu爬虫项目，基本的目录结构大概如下
 
@@ -195,12 +201,20 @@ PROXIES = [#代理IP定义
 ]
 ```
 
+# 
+
 # QA
 
-1. yeild是什么鬼
-2. @classmethod是什么鬼
+---
+
+1. `yeild` 是什么鬼
+2. `@classmethod` 是什么鬼
+
+# 
 
 # 扩展
+
+---
 
 
 
