@@ -189,6 +189,10 @@ USER_AGENTS = [#定义header头信息，用来伪造
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/535.20 (KHTML, like Gecko) Chrome/19.0.1036.7 Safari/535.20",
     "Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; fr) Presto/2.9.168 Version/11.52",
 ]
+PROXIES = [#代理IP定义
+    {'ip_port': '1.28.182.175:80', 'user_pass': ''},
+    {'ip_port': '106.123.54.220:80', 'user_pass': ''},
+]
 ```
 
 # QA
