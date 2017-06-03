@@ -85,7 +85,7 @@ class UserItem(scrapy.Item):
     pass
 ```
 
-pipelines.py 里我们定义解析item的管道
+`pipelines.py` 里我们定义解析item的管道，注意需要再setting中注册的
 
 ```py
 import pymongo as mongo
@@ -130,6 +130,37 @@ class MongoPipeline(object):
         self.db[collection_name].update({"url_token": item["url_token"]},
                                         item["json"], upsert=True)
         return item
+```
+
+`middlewares.py` 中间件，注意需要settiing注册的，根据功能，我们要注册的是Downloader Middleware。
+
+```py
+import random
+import base64
+from settings import PROXIES
+
+#随机伪造一个User-Agent
+class RandomUserAgentMiddleware(object):
+    def __init__(self, agents):
+        self.agents = agents
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        return cls(crawler.settings.getlist("USER_AGENTS"))
+
+    def process_request(self, request, spider):
+        request.headers["User-Agent"] = random.choice(self.agents)
+        
+#随机设置代理
+class ProxyMiddleware(object):
+    def process_request(self, request, spider):
+        proxy = random.choice(PROXIES)
+        if proxy["user_pass"] is not None:
+            request.meta["proxy"] = "https://%s" % proxy["ip_port"]
+            encoded_user_pass = base64.encodestring(proxy["user_pass"])
+            request.headers["Proxy-Authorization"] = "Basic " + encoded_user_pass
+        else:
+            request.meta["proxy"] = "https://%s" % proxy["ip_port"]
 ```
 
 # QA
