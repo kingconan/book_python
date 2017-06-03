@@ -1,3 +1,11 @@
-# My Awesome Book
+# 前言
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+学习python，主要是实用。本书打算从几方面入手，以实用为主
+
+* 爬虫实践，裸写或者使用scrapy框架
+* 机器学习实践，由于很多机器学习框架都有python版本，所以希望可以略懂一下
+* 量化学习实践
+* 其他再看吧
+
+
+
