@@ -197,6 +197,9 @@ PROXIES = [#代理IP定义
 
 # QA
 
+1. yeild是什么鬼
+2. @classmethod是什么鬼
+
 # 扩展
 
 
