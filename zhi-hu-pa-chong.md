@@ -96,7 +96,7 @@ class DuplicatePipeline(object):
     def __init__(self):
         self.ids_seen = set()
 
-    def process_item(self, item, spider):
+    def process_item(self, item, spider):#pipeline我们关注的函数，会被框架调用处理item
         if item["url_token"] in self.ids_seen:
             raise DropItem("duplicate item found")
         else:
