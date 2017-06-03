@@ -48,11 +48,88 @@
 class UserSpider(scrapy.Spider):
     name = "user" #爬虫名字, 命令调用时依据此, scrap crawl user
 
-    def start_requests(self):
+    def start_requests(self): #爬虫启动时会调用该函数一次，必须返回可迭代的数据
         yield scrapy.Request(url=self.login_url, headers=self.headers, callback=self.login)
 
-    def login(self, response0:
+    def login(self, response): #request的回调函数，会将请求结果返回
         pass
+```
+
+由于爬知乎需要登录验证，所以我们的第一个请求通常是登录，并将登录信息存下来，已给后续爬虫请求使用。
+
+知乎登录的请求主要分为三步
+
+1. 获得xsrf
+2. 获得验证码
+3. 发post登录请求
+
+获得知乎用户信息，我们这里偷懒的是，我们分析出了知乎用户信息的相关请求后获得了可返还json数据的url
+
+```py
+user_url = "https://www.zhihu.com/api/v4/members/{user}?include={include}"
+follow_url = "https://www.zhihu.com/api/v4/members/{user}/followees?include=" \
+                 "{include}&amp;offset={offset}&amp;limit={limit}"
+```
+
+`items.py` 是一个简单数据类，并木有什么说，记住要继承 `scrapy.item` 即可
+
+```py
+import scrapy
+class UserItem(scrapy.Item):
+    # define the fields for your item here like:
+    name = scrapy.Field()
+    url = scrapy.Field()
+    json = scrapy.Field()
+    url_token = scrapy.Field()
+    seed_token = scrapy.Field()
+    pass
+```
+
+pipelines.py 里我们定义解析item的管道
+
+```py
+import pymongo as mongo
+from scrapy.exceptions import DropItem
+
+#去重pipeline，如果发现该用户已经处理过了，则丢弃该item，否则记录并传递下去
+class DuplicatePipeline(object):
+    def __init__(self):
+        self.ids_seen = set()
+
+    def process_item(self, item, spider):
+        if item["url_token"] in self.ids_seen:
+            raise DropItem("duplicate item found")
+        else:
+            self.ids_seen.add(item["url_token"])
+            return item
+
+#数据存储，注意数据库初始化我们调用的是from_crawler，open_spider这些爬虫回调来进行数据库相关初始化
+class MongoPipeline(object):
+    def __init__(self, mongo_uri, mongo_port, mongo_db):
+        self.mongo_uri = mongo_uri
+        self.mongo_db = mongo_db
+        self.mongo_port = mongo_port
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        return cls(
+            mongo_uri=crawler.settings.get('MONGO_URI', "127.0.0.1"),
+            mongo_port=crawler.settings.get('MONGO_PORT', 27017),
+            mongo_db=crawler.settings.get('MONGO_DATABASE', 'test_db')
+        )
+
+    def open_spider(self,spider):
+        self.client = mongo.MongoClient(self.mongo_uri, self.mongo_port)
+        self.db = self.client[self.mongo_db]
+
+    def close_spider(self,spider):
+        self.client.close()
+
+    def process_item(self, item, spider):
+        collection_name = item.__class__.__name__
+        self.db[collection_name].update({"url_token": item["url_token"]},
+                                        item["json"], upsert=True)
+        return item
 ```
 
 # QA
