@@ -188,13 +188,13 @@ PROXIES = [#代理IP定义
 ]
 ```
 
-
-
 # QA
 
 ---
 
 reuquest 和 response 如何传递参数
+
+> request里支持meta字段，可以传dict过去，然后response.meta\["key"\]来访问
 
 登录的cookie如何存储
 
