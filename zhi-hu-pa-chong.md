@@ -198,6 +198,8 @@ reuquest 和 response 如何传递参数
 
 登录的cookie如何存储
 
+> 使用CookieJar来搞
+
 # 扩展
 
 ---
