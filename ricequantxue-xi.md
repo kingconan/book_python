@@ -44,7 +44,7 @@ import pandas as pd
 
 
 s = Series(np.random.randn(5),index =['a','b','c','d','e'])
-#输出
+#输出s
 a   -2.895114
 b   -1.231825
 c    0.471328
