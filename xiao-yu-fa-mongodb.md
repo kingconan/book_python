@@ -1,4 +1,4 @@
-# Mongo DB CheatSheet
+# Mongo DB CheatSheet - 1
 
 ```js
 > db.CollectionName.count() //显示当前集合里item数量
@@ -12,7 +12,6 @@
 { "_id" : ObjectId("5931452390bd4b4e16868c57"), "name" : "周源", "follower_count" : 773221 }
 { "_id" : ObjectId("5931462690bd4b4e16868ebf"), "name" : "yolfilm", "follower_count" : 757138 }
 //find里的支持函数 https://docs.mongodb.com/manual/reference/operator/query/
-
 ```
 
 

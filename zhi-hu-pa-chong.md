@@ -192,13 +192,56 @@ PROXIES = [#代理IP定义
 
 ---
 
-reuquest 和 response 如何传递参数
+**reuquest 和 response 如何传递参数**
 
 > request里支持meta字段，可以传dict过去，然后response.meta\["key"\]来访问
 
-登录的cookie如何存储
+**登录的cookie如何存储**
 
-> 使用CookieJar来搞
+> 使用CookieJar来搞，而且一旦用户主动干扰cookie，那么cookie的使用必须显式指定了。。。
+
+```py
+    def post_login(self, response):#获取cookie信息，注意，meta的cookiejar字段要每个request都传递的
+        #....
+        cookie_jar = response.meta['cookiejar']
+        cookie_jar.extract_cookies(response, response.request)
+        self.write_cookie(cookie_jar)
+        #...
+        
+    def send_request(self):
+        #...
+        self.cookie_jar = self.read_cookie()
+        yield scrapy.Request(url=self.follow_url,
+                             headers=self.headers,
+                             callback=self.parse_follow,
+                             cookies=self.cookie_jar,
+                             meta={"seed_token": self.user_start})
+        #...
+    
+    def write_cookie(self, cookie_jar):
+        with open("cookie_zhihu.cookie", "wb+") as f:
+            for cookie in cookie_jar:
+                f.write(str(cookie) + '\n')
+
+    def read_cookie(self):
+        with open("cookie_zhihu.cookie") as f:
+            cookiejar = f.read()
+
+        p = re.compile('\<Cookie (.*?) for .zhihu.com\/\>')
+        cookies = re.findall(p, cookiejar)
+        cookie_jar = {}
+        for cookie in cookies:
+            pos = cookie.find("=") #由于zhihu.com的cookie值里有=，所以只能通过查找来取key，value
+            k = cookie[0: pos]
+            v = cookie[pos+1:]
+            cookie_jar[k] = v
+
+        return dict(cookie_jar)
+```
+
+**数据库帮助函数如何在spider内部调用**
+
+> 目前是在spider定义一个ref，然后在pipeline的open\_spider里 `spider.ref = self`
 
 # 扩展
 

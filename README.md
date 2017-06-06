@@ -9,3 +9,26 @@
 
 
 
+另外gitbook使用也说下。由于同步慢的原因，现在只能手工git了
+
+* gitbook编辑 -&gt; git同步到github -&gt; gitbook从github同步
+* Mac上文档位置如下 /Users/jingang/GitBook/Library/Import/python
+* https://help.gitbook.com/books/how-can-i-use-git.html
+
+```py
+  > git status
+  On branch master
+  Your branch is ahead of 'github/master' by 6 commits.
+  (use "git push" to publish your local commits)
+  nothing to commit, working directory clean
+  
+  > git push -u -f github master
+  
+```
+
+* 文章发布地址 https://kingconan.gitbooks.io/python/content/
+
+
+
+
+
