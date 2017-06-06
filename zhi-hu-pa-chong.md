@@ -207,7 +207,7 @@ PROXIES = [#代理IP定义
         cookie_jar.extract_cookies(response, response.request)
         self.write_cookie(cookie_jar)
         #...
-        
+
     def send_request(self):
         #...
         self.cookie_jar = self.read_cookie()
@@ -217,7 +217,7 @@ PROXIES = [#代理IP定义
                              cookies=self.cookie_jar,
                              meta={"seed_token": self.user_start})
         #...
-    
+
     def write_cookie(self, cookie_jar):
         with open("cookie_zhihu.cookie", "wb+") as f:
             for cookie in cookie_jar:
