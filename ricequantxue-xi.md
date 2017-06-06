@@ -1,4 +1,21 @@
-# 程序基本框架
+# 介绍
+
+* 策略研究下可以随便试各种python，提供了注释，代码和结果展示的混合视图，可以用来教学
+
+* 我的策略是真正执行回测的地方，有些库的使用受到限制，比如plot之类的
+
+
+
+# RQAlpha
+
+搭建本地开发环境
+
+```py
+pip install rqalpha #http://rqalpha.readthedocs.io/zh_CN/latest/intro/overview.html
+
+```
+
+# 回测程序基本框架
 
 ```py
 #Ricequant使用的是python3语法
@@ -38,12 +55,11 @@ m2 = np.matrix([1, 2, 3], [4, 5, 6]) #使用序列
 ## pandas
 
 ```py
-#pandas的series是一维数组的对象，和numpy的区别在于扩展了类型，不要求相同
 from pandas import Series, DataFrame
 import pandas as pd
 
-
-s = Series(np.random.randn(5),index =['a','b','c','d','e'])
+#pandas的series是一维数组的对象，和numpy的区别在于扩展了类型，不要求相同
+s = Series(np.random.randn(5),index =['a','b','c','d','e']) #get_price返回的是Series
 #输出s
 a   -2.895114
 b   -1.231825
@@ -51,7 +67,26 @@ c    0.471328
 d   -1.287756
 e    1.475353
 dtype: float64
+
+#data frame是表类型数据结构，get_price返回多个股票信息时时表结构，纵坐标为时间，横坐标为股票代码
+d = {'one' : [1., 2., 3., 4.],
+     'two' : [4., 3., 2., 1.]}
+df = pd.DataFrame(d)
+#输出df
+      one     two
+0     1.0     4.0
+1     2.0     3.0
+2     3.0     2.0
+3     4.0     1.0
 ```
+
+## Scipy
+
+```
+#提供了比较高级的函数，用于统计，数值计算
+```
+
+
 
 
 
