@@ -1,4 +1,4 @@
-# Mongo DB CheatSheet - 1
+# Mongo DB CheatSheet
 
 ```js
 > db.CollectionName.count() //显示当前集合里item数量
