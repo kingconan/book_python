@@ -4,19 +4,16 @@
 #Ricequant使用的是python3语法
 def init(context):
     #初始化函数，context会在每个方法中传递
-    
+
 def before_trading(context, bar_dict):
     #每天交易开始前调用，当天仅调用一次
-    
+
 def handle_bar(context, bar_dict):
     #算法在这里，bar数据变化会触发此函数
-    
+
 def after_trading(context, bar_dict):
     #每天收盘后被调用，15:30
-        
 ```
-
-
 
 ## numpy
 
@@ -36,6 +33,24 @@ d = a[:2, 1:3] #切片，行选择0,1,列选择1，2的子矩阵
 
 m1 = np.mat("1 2 3; 4 5 6"] #使用字符串，mat是matrix别名
 m2 = np.matrix([1, 2, 3], [4, 5, 6]) #使用序列
+```
+
+## pandas
+
+```py
+#pandas的series是一维数组的对象，和numpy的区别在于扩展了类型，不要求相同
+from pandas import Series, DataFrame
+import pandas as pd
+
+
+s = Series(np.random.randn(5),index =['a','b','c','d','e'])
+#输出
+a   -2.895114
+b   -1.231825
+c    0.471328
+d   -1.287756
+e    1.475353
+dtype: float64
 ```
 
 
