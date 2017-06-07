@@ -247,7 +247,7 @@ PROXIES = [#代理IP定义
 
 ---
 
-制作知乎feed源，
+### 制作知乎feed源
 
 ```py
 header = {'authorization': 'Bearer Mi4wQUhEQTRRRHhSUW9BQUFEelpVamlDUmNBQUFCaEFsVk5ZZFJZV1'
@@ -266,6 +266,32 @@ feed结构整理
 | MEMBER\_VOTEUP\_ARTICLE | 赞文章 | target.url, target.excerpt\_new, target.title |
 | MEMBER\_CREATE\_ARTICLE | 发表文章 |  |
 | 。。。 |  |  |
+
+```xml
+<rss>
+    <channel>
+        <title></title>
+        <link></link>
+        ...
+        <item>
+            <title></title>
+            <link></link>
+            <description></description>
+            <pubDate></pubDate>
+            ...
+        </item>
+        <item>
+            ...
+        </item>
+    </channel>
+</rss>
+```
+
+
+
+
+
+
 
 
 
