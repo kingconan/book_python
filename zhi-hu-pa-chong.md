@@ -247,5 +247,32 @@ PROXIES = [#代理IP定义
 
 ---
 
+制作知乎feed源，
+
+```py
+header = {'authorization': 'Bearer Mi4wQUhEQTRRRHhSUW9BQUFEelpVamlDUmNBQUFCaEFsVk5ZZFJZV1'
+                         'FCTzlEdjJ4amVnYjJtY3BxV1N0ZW01MTNBc1lB|1496817567|14dd15b6c0'
+                         '3e3f39322f6f09b7a1a2b9876d8eed'}
+feed_url = "https://www.zhihu.com/api/v4/members/{user}/activities?" \
+               "limit=10"
+     
+```
+
+feed结构整理
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
