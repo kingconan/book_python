@@ -255,12 +255,16 @@ header = {'authorization': 'Bearer Mi4wQUhEQTRRRHhSUW9BQUFEelpVamlDUmNBQUFCaEFsV
                          '3e3f39322f6f09b7a1a2b9876d8eed'}
 feed_url = "https://www.zhihu.com/api/v4/members/{user}/activities?" \
                "limit=10"
-     
 ```
 
 feed结构整理
 
-
+| verb |  |  |
+| :--- | :--- | :--- |
+| ANSWER\_CREATE | 回答问题 |  |
+| ANSWER\_VOTE\_UP | 赞同问题 |  |
+| MEMBER\_VOTEUP\_ARTICLE | 赞文章 |  |
+| MEMBER\_CREATE\_ARTICLE | 发表文章 |  |
 
 
 
