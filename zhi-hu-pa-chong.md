@@ -261,22 +261,11 @@ feed结构整理
 
 | verb |  |  |
 | :--- | :--- | :--- |
-| ANSWER\_CREATE | 回答问题 |  |
+| ANSWER\_CREATE | 回答问题 | target.url, target.excerpt\_new, target.question.title |
 | ANSWER\_VOTE\_UP | 赞同问题 |  |
-| MEMBER\_VOTEUP\_ARTICLE | 赞文章 |  |
+| MEMBER\_VOTEUP\_ARTICLE | 赞文章 | target.url, target.excerpt\_new, target.title |
 | MEMBER\_CREATE\_ARTICLE | 发表文章 |  |
-
-
-
-
-
-
-
-
-
-
-
-
+| 。。。 |  |  |
 
 
 
