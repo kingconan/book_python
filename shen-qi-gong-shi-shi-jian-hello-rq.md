@@ -67,10 +67,14 @@ def magic_stocks(context, bar_dict):
     #target 4
     t4 = get_fundamentals(
         query(fundamentals.financial_indicator.return_on_invested_capital)
-            .order_by()
-            .limet(300)
+            .order_by(fundamentals.financial_indicator.return_on_invested_capital.desc())
+            .limit(300)
     )
     #target 5
+    t3and4 = [stock for stock in t3 if stock in t4]
+    #target 2
+    t = [stock for stock in t3and4 if stock not in context.exclude_stocks
+    
 ```
 
 #### 参考
