@@ -77,8 +77,19 @@ def magic_stocks(context, bar_dict):
     #target 6
     t6 = t2[0:30]
     context.magic_stocks = t6
-    
+
     logger.info(context.magic_stocks)
+    
+    #2016-06-24 INFO  
+    #[
+    # '000550.XSHE', '002419.XSHE', '600741.XSHG', '000651.XSHE', '000625.XSHE', 
+    # '000626.XSHE', '600694.XSHG', '600583.XSHG', '600690.XSHG', '000581.XSHE', 
+    # '600600.XSHG', '000828.XSHE', '600004.XSHG', '600177.XSHG', '601633.XSHG', 
+    # '600826.XSHG', '600100.XSHG', '000333.XSHE', '600299.XSHG', '600129.XSHG', 
+    # '600897.XSHG', '600688.XSHG', '000418.XSHE', '601238.XSHG', '601877.XSHG', 
+    # '002561.XSHE', '600060.XSHG', '000858.XSHE', '000895.XSHE', '603188.XSHG'
+    #]
+
 ```
 
 #### 参考
