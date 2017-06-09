@@ -57,7 +57,8 @@ def init(context):
     context.exclude_stocks = sector('utilities') + sector('financial')
     logger.info(context.exclude_stocks)
     
-
+def magic_stocks(context, bar_dict):
+    #target 3
 ```
 
 #### 参考
