@@ -40,7 +40,16 @@ sector(code)
 EBIT息税前利润 : 息税前利润，是扣除利息、所得税之前的利润。
 ev : 企业价值 = 股权价值 + 带息债务 （含货币资金）
 ev_2 : 企业价值 = 股权价值 + 带息债务 - 货币资金
-return_on_invested_capital : 是指投出和/或使用资金与相关回报（回报通常表现为获取的利息和/或分得利润）之比例。用于衡量投出资金的使用效果。
+return_on_invested_capital : 投入资本回报率ROIC，
+  是指投出和/或使用资金与相关回报（回报通常表现为获取的利息和/或分得利润）之比例。用于衡量投出资金的使用效果。
+```
+
+#### code
+
+```py
+def init(context):
+    context.exclude_stocks = sector('utilities') + sector('financial')
+    logger.info(context.exclude_stocks)
 ```
 
 
