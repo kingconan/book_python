@@ -6,4 +6,5 @@
 * [小语法 - MongoDB](xiao-yu-fa-mongodb.md)
 * [ricequant基本了解](ricequantxue-xi.md)
 * [神奇公式实践 - Hello RQ](shen-qi-gong-shi-shi-jian-hello-rq.md)
+* [微信机器人](wei-xin-ji-qi-ren.md)
 
