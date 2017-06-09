@@ -26,11 +26,11 @@
 #### 股票板块信息
 
 ```py
-/**
+'''
   获得属于某个板块的所有股票列表
   parameter : code表示板块名称或者板块代码，eg:Energy，能源或者sector_code.Energy，
- return : 股票order?book_id列表
-*/
+  return : 股票order?book_id列表
+'''
 sector(code)
 ```
 
