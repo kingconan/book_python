@@ -59,6 +59,10 @@ def init(context):
 
 def magic_stocks(context, bar_dict):
     #target 3
+    t3 = get_fundamentals(
+        query(fundamentals.eod_derivative_indicator.ev_to_ebit)
+            .order_by(fundamentals.eod_derivative_indicator.ev_to_ebit.asc())
+    )
     #target 4
     #target 5
 ```
