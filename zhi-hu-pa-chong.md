@@ -257,7 +257,7 @@ feed_url = "https://www.zhihu.com/api/v4/members/{user}/activities?" \
                "limit=10"
 ```
 
-feed结构整理
+feed结构整理\(`verb`, `action_text`, `id`,`created_time`\)
 
 | verb |  |  |
 | :--- | :--- | :--- |
@@ -286,12 +286,6 @@ feed结构整理
     </channel>
 </rss>
 ```
-
-
-
-
-
-
 
 
 
