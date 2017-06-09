@@ -58,12 +58,18 @@ def init(context):
     logger.info(context.exclude_stocks)
 
 def magic_stocks(context, bar_dict):
-    #target 3
+    #target 3，ev_to_ebit 正好是目标3的倒数，故升序
     t3 = get_fundamentals(
         query(fundamentals.eod_derivative_indicator.ev_to_ebit)
             .order_by(fundamentals.eod_derivative_indicator.ev_to_ebit.asc())
+            .limit(300)
     )
     #target 4
+    t4 = get_fundamentals(
+        query(fundamentals.financial_indicator.return_on_invested_capital)
+            .order_by()
+            .limet(300)
+    )
     #target 5
 ```
 
