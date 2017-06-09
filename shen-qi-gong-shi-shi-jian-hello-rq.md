@@ -56,9 +56,11 @@ get_fundamentals(query, entry_date=None, interval='1d', report_quarter=False)
 def init(context):
     context.exclude_stocks = sector('utilities') + sector('financial')
     logger.info(context.exclude_stocks)
-    
+
 def magic_stocks(context, bar_dict):
     #target 3
+    #target 4
+    #target 5
 ```
 
 #### 参考
