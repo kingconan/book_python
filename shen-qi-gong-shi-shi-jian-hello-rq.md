@@ -71,10 +71,12 @@ def magic_stocks(context, bar_dict):
             .limit(300)
     )
     #target 5
-    t3and4 = [stock for stock in t3 if stock in t4]
+    t5 = [stock for stock in t3 if stock in t4]
     #target 2
-    t = [stock for stock in t3and4 if stock not in context.exclude_stocks
-    
+    t2 = [stock for stock in t5 if stock not in context.exclude_stocks
+    #target 6
+    t6 = t2[0:30]
+    context.magic_stocks = t6
 ```
 
 #### 参考
