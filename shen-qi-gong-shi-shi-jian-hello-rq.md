@@ -44,12 +44,28 @@ return_on_invested_capital : 投入资本回报率ROIC，
   是指投出和/或使用资金与相关回报（回报通常表现为获取的利息和/或分得利润）之比例。用于衡量投出资金的使用效果。
 ```
 
+#### 如何查询财务数据
+
+```py
+get_fundamentals(query, entry_date=None, interval='1d', report_quarter=False)
+```
+
 #### code
 
 ```py
 def init(context):
     context.exclude_stocks = sector('utilities') + sector('financial')
     logger.info(context.exclude_stocks)
+    
+
+```
+
+#### 参考
+
+```
+https://www.ricequant.com/api/python/chn#scheduler-time
+https://www.ricequant.com/fundamentals#ana_stk_fin_idx
+http://docs.sqlalchemy.org/en/rel_1_0/orm/tutorial.html#querying
 ```
 
 
