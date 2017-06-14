@@ -2,8 +2,6 @@
 
 基本原理是模拟web微信登录，通过研究接口制作出的SDK，注意，该SDK的功能有限但是够用
 
-
-
 #### itchat
 
 封装好的python库，项目主页 [http://itchat.readthedocs.io/zh/latest/](http://itchat.readthedocs.io/zh/latest/)
@@ -73,7 +71,7 @@ import sys
 HOST = '127.0.0.1'
 PORT = 10000
 s = socket.socket()
-s.connect((HOST, PORT))
+s.connect(HOST, PORT)
 
 while 1:
     msg = raw_input("Command To Send: ")
@@ -82,8 +80,6 @@ while 1:
        sys.exit(0)
     s.send(msg)
 ```
-
-
 
 
 
