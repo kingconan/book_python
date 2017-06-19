@@ -6,14 +6,14 @@
 
 ```py
 from sklearn import neighbors, datasets
-iris = datasets.load_iris()
-knn = neighbors.KNeighborsClassifier(n_neighbors=5,weights="uniform")
 
 #训练数据
+iris = datasets.load_iris()
 target = iris.target
 data = iris.data
 
 #训练
+knn = neighbors.KNeighborsClassifier(n_neighbors=5,weights="uniform")
 knn.fit(data,target)
 
 #预测
