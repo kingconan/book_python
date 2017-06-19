@@ -81,5 +81,7 @@ while 1:
     s.send(msg)
 ```
 
+#### 其他人的工作
 
+无意间看到，做的意思差不多 ： https://github.com/bluedazzle/wechat\_sender
 
