@@ -9,4 +9,5 @@
 * [微信机器人](wei-xin-ji-qi-ren.md)
 * [PIP慢](pipman.md)
 * [jieba分词](jiebafen-ci.md)
+* [sklearn - iris](sklearn-iris.md)
 
