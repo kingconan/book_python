@@ -4,7 +4,11 @@
 >
 > 分类target：Iris Setosa（山鸢尾）、Iris Versicolour（杂色鸢尾），Iris Virginica（维吉尼亚鸢尾）
 
+
+
 ```py
+#KNN
+#
 from sklearn import neighbors, datasets
 
 #训练数据
