@@ -13,6 +13,7 @@ knn = neighbors.KNeighborsClassifier(n_neighbors=5,weights="uniform")
 target = iris.target
 data = iris.data
 
+#训练
 knn.fit(data,target)
 
 #预测
