@@ -11,4 +11,5 @@
 * [jieba分词](jiebafen-ci.md)
 * [ML](sklearn-iris.md)
 * [CAPM模型](capmmo-xing.md)
+* [nginx日志分析](nginxri-zhi-fen-xi.md)
 
