@@ -54,6 +54,9 @@
 //uniq -c 显示重复的次数，只检查相邻的是否重复，所以一般要sort先
 cat access_20170601.log | awk '{print $1 " " $7}' | grep /inspire/detail/ | cut -f1,7 -d ' ' | sort | uniq -c | sort -g -r
 cat access_20170601.log | awk '{print $1 " " $7}' | grep /inspire/detail/ | sort -k 1 -t ' '
+
+//split的角标是从1开始的。。。蛋碎，这个是把url的?后面去掉
+cat access_20170601.log | awk '{print $1 " " $7}' | grep /inspire/detail/ | awk '{split($2,b,"?"); print $1 " " b[1]}'
 ```
 
 cat 看文件
