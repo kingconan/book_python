@@ -48,12 +48,9 @@
 ```
 //按ip排序
 //cut-c -b -f 分别对应character byte 和 filed截取方式，-f时要指定分割符号 -d
-// cut -f1 -d " " 截取以空格分割的第一个部分
-cat access_20170601.log | cut -f1 -d ' ' | sort | uniq -c | sort -g -r 
-
+//cut -f1 -d " " 截取以空格分割的第一个部分
+cat access_20170601.log | cut -f1 -d ' ' | sort | uniq -c | sort -g -r
 ```
-
-
 
 cat 看文件
 
@@ -64,6 +61,4 @@ sort 排序
 uniq 去重
 
 awk 文本处理
-
-
 
