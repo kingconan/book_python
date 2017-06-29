@@ -49,7 +49,11 @@
 //按ip排序
 //cut-c -b -f 分别对应character byte 和 filed截取方式，-f时要指定分割符号 -d
 //cut -f1 -d " " 截取以空格分割的第一个部分
-cat access_20170601.log | awk '{print $1 " " $7}' | grep /inspire/detail/ | cut -f1 -d ' ' | sort | uniq -c | sort -g -r
+//sort -r 升序 -n以数值来排序
+//sort -k 2 -t " " 以" "分割，用第二个来排序
+//uniq -c 显示重复的次数，只检查相邻的是否重复，所以一般要sort先
+cat access_20170601.log | awk '{print $1 " " $7}' | grep /inspire/detail/ | cut -f1,7 -d ' ' | sort | uniq -c | sort -g -r
+cat access_20170601.log | awk '{print $1 " " $7}' | grep /inspire/detail/ | sort -k 1 -t ' '
 ```
 
 cat 看文件
