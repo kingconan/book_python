@@ -16,3 +16,12 @@
 
 
 
+
+
+```
+mongod --config /usr/local/etc/mongod.conf #启动mogon服务
+mogon #进入mogon客户端
+```
+
+
+
