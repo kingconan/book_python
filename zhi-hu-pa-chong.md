@@ -10,7 +10,7 @@ Scrapy简介
 
 开始之前，根据官方指导，安装`scrapy`，本人的开发环境是`Mac+python2.7+pycharm`。同时存储我这里使用的是`mongodb`，所以安装`mogondb`和`pymongo`。
 
-# 
+
 
 # 示例
 
