@@ -83,5 +83,103 @@ while 1:
 
 #### 其他人的工作
 
-无意间看到，做的意思差不多 ： https://github.com/bluedazzle/wechat\_sender
+无意间看到，做的意思差不多 ： [https://github.com/bluedazzle/wechat\_sender](https://github.com/bluedazzle/wechat_sender)
+
+
+
+```js
+{//根据UserName查询用户信息
+    "UserName": "@63a028af148fb002247be83ce73ae30d", 
+    "City": "\u5f90\u6c47", 
+    "DisplayName": "", 
+    "UniFriend": 0, 
+    "OwnerUin": 0, 
+    "MemberList": [], 
+    "PYQuanPin": "jinxiaogangyaozaoqikanrenjian", 
+    "RemarkPYInitial": "", 
+    "Uin": 1298147140, 
+    "AppAccountFlag": 0, 
+    "VerifyFlag": 0, 
+    "Province": "\u4e0a\u6d77", 
+    "KeyWord": "sjt", 
+    "RemarkName": "", 
+    "PYInitial": "JXGYZQKRJ", 
+    "ChatRoomId": 0, 
+    "IsOwner": 0, 
+    "HideInputBarFlag": 0, 
+    "HeadImgFlag": 1, 
+    "EncryChatRoomId": "", 
+    "AttrStatus": 33751487, 
+    "SnsFlag": 49, 
+    "MemberCount": 0, 
+    "WebWxPluginSwitch": 0, 
+    "Alias": "", 
+    "Signature": "\u6211\u8be5\u5982\u4f55\u53bb\u4e86\u89e3", 
+    "ContactFlag": 7, 
+    "NickName": "\u91d1\u5c0f\u521a\u8981\u65e9\u8d77\u770b\u4eba\u95f4", //金小刚要早起看人间
+    "RemarkPYQuanPin": "", 
+    "HeadImgUrl": "/cgi-bin/mmwebwx-bin/webwxgeticon?seq=1263700&username=@63a028af148fb002247be83ce73ae30d&skey=@crypt_2b538ced_b9d6556484ab9487e1ed6de2a8d5f181", 
+    "Sex": 1, 
+    "StarFriend": 0, 
+    "Statues": 0
+}
+```
+
+```js
+{//自己发送消息到群组
+    "AppInfo": {
+        "Type": 0, 
+        "AppID": ""
+    }, 
+    "ImgWidth": 0, 
+    "FromUserName": "@63a028af148fb002247be83ce73ae30d", 
+    "PlayLength": 0, 
+    "OriContent": "", 
+    "ImgStatus": 1, 
+    "RecommendInfo": {
+        "UserName": "", 
+        "Province": "", 
+        "City": "", 
+        "Scene": 0, 
+        "QQNum": 0, 
+        "Content": "", 
+        "Alias": "", 
+        "OpCode": 0, 
+        "Signature": "", 
+        "Ticket": "", 
+        "Sex": 0, 
+        "NickName": "", 
+        "AttrStatus": 0, 
+        "VerifyFlag": 0
+    }, 
+    "Content": "test", 
+    "MsgType": 1, 
+    "ImgHeight": 0, 
+    "StatusNotifyUserName": "", 
+    "StatusNotifyCode": 0, 
+    "Type": "Text", 
+    "NewMsgId": 6904308120000518543, 
+    "Status": 3, 
+    "VoiceLength": 0, 
+    "MediaId": "", 
+    "MsgId": "6904308120000518543", 
+    "ToUserName": "@@cfd5b07f33fed5cb46c375b3abb9c861e4db31f723aa5ce00cfa0adad203cbc9", 
+    "ForwardFlag": 0, 
+    "FileName": "", 
+    "Url": "", 
+    "HasProductId": 0, 
+    "FileSize": "", 
+    "AppMsgType": 0, 
+    "Text": "test", 
+    "Ticket": "", 
+    "CreateTime": 1499235985, 
+    "SubMsgType": 0
+}
+```
+
+```
+
+```
+
+
 
