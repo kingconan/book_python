@@ -87,6 +87,14 @@ while 1:
 
 
 
+```
+微信群组思路
+1. fromUserName和toUserName分别是群组@@id和自己的@id
+2. 当别人发给我自己时，如果@了自己，则isAt为true。另有ActualNickName和ActualUserName为实际发消息的人
+```
+
+
+
 ```js
 {//根据UserName查询用户信息
     "UserName": "@63a028af148fb002247be83ce73ae30d", 
@@ -177,8 +185,68 @@ while 1:
 }
 ```
 
-```
-
+```js
+{//群信息
+    "UserName": "@@00dcd02b7b2f6939d9ba5e039db347be04ab73daf749f37e60fd2b995eba65ca", 
+    "City": "", 
+    "DisplayName": "", 
+    "UniFriend": 0, 
+    "MemberList": [
+        {
+            "UserName": "@5646a448b5130ce453c03fe02b82e561", 
+            "RemarkPYQuanPin": "", 
+            "DisplayName": "", 
+            "KeyWord": "glo", 
+            "PYInitial": "", 
+            "Uin": 0, 
+            "RemarkPYInitial": "", 
+            "PYQuanPin": "", 
+            "MemberStatus": 0, 
+            "NickName": "Abby \ud83c\udf1d", 
+            "AttrStatus": 33787327
+        }
+    ], 
+    "PYQuanPin": "TraveliD2017", 
+    "RemarkPYInitial": "", 
+    "Uin": 0, 
+    "AppAccountFlag": 0, 
+    "VerifyFlag": 0, 
+    "Province": "", 
+    "KeyWord": "", 
+    "RemarkName": "", 
+    "self": {
+        "UserName": "@2cbb122edfb26334b967149ad67c1ad0", 
+        "RemarkPYQuanPin": "", 
+        "DisplayName": "", 
+        "KeyWord": "sjt", 
+        "PYInitial": "", 
+        "Uin": 0, 
+        "RemarkPYInitial": "", 
+        "PYQuanPin": "", 
+        "MemberStatus": 0, 
+        "NickName": "\u91d1\u5c0f\u521a\u8981\u65e9\u8d77\u770b\u4eba\u95f4", 
+        "AttrStatus": 33751487
+    }, 
+    "ChatRoomId": 0, 
+    "IsOwner": 0, 
+    "HideInputBarFlag": 0, 
+    "EncryChatRoomId": "@07febb0102bd4247c0e84b3e5284491d", 
+    "AttrStatus": 0, 
+    "Statues": 0, 
+    "SnsFlag": 0, 
+    "MemberCount": 13, 
+    "OwnerUin": 0, 
+    "Alias": "", 
+    "Signature": "", 
+    "ContactFlag": 2, 
+    "NickName": "TraveliD2017", 
+    "RemarkPYQuanPin": "", 
+    "HeadImgUrl": "/cgi-bin/mmwebwx-bin/webwxgetheadimg?seq=658152830&username=@@00dcd02b7b2f6939d9ba5e039db347be04ab73daf749f37e60fd2b995eba65ca&skey=", 
+    "Sex": 0, 
+    "StarFriend": 0, 
+    "PYInitial": "TRAVELID2017", 
+    "isAdmin": null
+}
 ```
 
 
