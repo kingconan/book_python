@@ -69,3 +69,9 @@ uniq 去重
 
 awk 文本处理
 
+
+
+http://www.cnblogs.com/FrankTan/archive/2010/03/01/1634516.html
+
+http://blog.csdn.net/liuxiao723846/article/details/47754479
+

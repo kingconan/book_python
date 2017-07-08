@@ -87,13 +87,15 @@ while 1:
 
 
 
+https://github.com/fritx/awesome-wechat
+
+
+
 ```
 微信群组思路
 1. fromUserName和toUserName分别是群组@@id和自己的@id
 2. 当别人发给我自己时，如果@了自己，则isAt为true。另有ActualNickName和ActualUserName为实际发消息的人
 ```
-
-
 
 ```js
 {//根据UserName查询用户信息
