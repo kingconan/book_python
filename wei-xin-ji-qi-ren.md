@@ -81,15 +81,23 @@ while 1:
     s.send(msg)
 ```
 
+#### 后台启动
+
+```
+nohup python /home/ubuntu/python/test_itchat.py &
+
+#jobs 查看当前运行进程
+
+
+#杀死进程
+kill -9 pid
+```
+
 #### 其他人的工作
 
 无意间看到，做的意思差不多 ： [https://github.com/bluedazzle/wechat\_sender](https://github.com/bluedazzle/wechat_sender)
 
-
-
-https://github.com/fritx/awesome-wechat
-
-
+[https://github.com/fritx/awesome-wechat](https://github.com/fritx/awesome-wechat)
 
 ```
 微信群组思路
