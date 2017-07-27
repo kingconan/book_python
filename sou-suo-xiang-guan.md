@@ -51,7 +51,7 @@ output {
 运行
 
 ```
-in/logstash -f config/jdbc_test.conf
+bin/logstash -f config/jdbc_test.conf
 ```
 
 ```
