@@ -2,7 +2,7 @@
 
 `elasticsearch`，基于luence，用于存储索引搜索，支持两种方式，java或者http方式。要求java8.
 
-`logstash`，数据处理
+`logstash`，数据处理，input和output，中间支持filter
 
 `kibana`，展示
 
@@ -51,7 +51,7 @@ output {
 运行
 
 ```
-in/logstash -f config/jdbc_test.conf 
+in/logstash -f config/jdbc_test.conf
 ```
 
 ```
