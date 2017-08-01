@@ -6,7 +6,27 @@
 
 `kibana`，展示
 
-### logstash
+### 启动`elasticsearch`
+
+`elasticsearch`安装目录运行 `bin/elasticsearch`
+
+访问 `http://localhost:9200/ `可以看到一些信息
+
+通过url进行搜索
+
+```
+//travelid_db下的users表，id为1的数据
+http://localhost:9200/travelid_db/users/1
+
+//搜索金刚，木有指定column
+http://localhost:9200/travelid_db/users/_search?q=%E9%87%91%E5%88%9A
+
+//搜索金刚指定column
+http://localhost:9200/travelid_db/users/_search?q=nickname:%E9%87%91%E5%88%9A
+
+//DSL查询，可以构建复杂查询
+
+```
 
 要导入mysql，需要插件`logstash-input-jdbc`，进入到`logstash/bin`下，运行
 
