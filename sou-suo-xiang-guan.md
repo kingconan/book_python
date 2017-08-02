@@ -71,8 +71,6 @@ public function searchHotel(Request $request){
 }
 ```
 
-
-
 使用python导入数据
 
 ```py
