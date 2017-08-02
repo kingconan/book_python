@@ -10,7 +10,7 @@
 
 `elasticsearch`安装目录运行 `bin/elasticsearch`
 
-访问 `http://localhost:9200/ `可以看到一些信息
+访问 `http://localhost:9200/`可以看到一些信息
 
 通过url进行搜索
 
@@ -25,8 +25,101 @@ http://localhost:9200/travelid_db/users/_search?q=%E9%87%91%E5%88%9A
 http://localhost:9200/travelid_db/users/_search?q=nickname:%E9%87%91%E5%88%9A
 
 //DSL查询，可以构建复杂查询
-
 ```
+
+
+
+使用python导入数据
+
+```py
+# coding=utf-8
+
+from bs4 import BeautifulSoup
+import json
+import datetime
+import os.path
+
+from elasticsearch import Elasticsearch
+import elasticsearch.helpers
+
+def es_hotels():
+    print "start hotels"
+    es = Elasticsearch()
+    
+    set_mapping(es)
+    
+    with open(city_json) as f:
+        city_arr = json.load(f)
+        f.close()
+        count = 0
+        for city in city_arr:
+            hotel_json = hotelJsonFolder + "hotellist_cityId%s.json" % city["id"]
+            if not os.path.isfile(hotel_json):
+                continue
+
+            # insert one json file
+
+            count += 1
+
+            with open(hotel_json) as hotel_file:
+                hotel_arr = json.load(hotel_file)
+                hotel_file.close()
+
+                actions = [
+                    {
+                        "_op_type": "index",
+                        "_index": "hq_hotel",
+                        "_type": "hotel",
+                        "_source": d
+                    }
+                    for d in hotel_arr
+                ]
+                elasticsearch.helpers.bulk(es, actions)
+
+            if count % 100 == 0:
+                print count
+                now()
+
+    print "end"
+    now()
+    
+   
+# 设置索引规则，bulk之前调用一下 
+def set_mapping(es, index_name="hq_hotel", doc_type_name="hotel"):
+    my_mapping = '''
+    {
+      "mappings":{
+        "hotel":{
+          "properties":{
+            "city_name_cn":{
+                "type": "string",
+                "index": "not_analyzed"
+            },
+            "country_name_cn": {
+                "type": "string",
+                "index": "not_analyzed"
+            },
+            "name_cn":{
+                "type": "string",
+                "index": "analyzed"
+            },
+            "name_en":{
+                "type": "string",
+                "index": "analyzed"
+            }
+          }
+        }
+      }
+    }'''
+    if es.indices.exists(index_name):
+        es.indices.delete(index=index_name)
+        print "delete exits index " + index_name
+
+    print "create index"
+    es.indices.create(index=index_name, body=my_mapping)
+```
+
+### logstash
 
 要导入mysql，需要插件`logstash-input-jdbc`，进入到`logstash/bin`下，运行
 
