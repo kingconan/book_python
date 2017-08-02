@@ -27,6 +27,50 @@ http://localhost:9200/travelid_db/users/_search?q=nickname:%E9%87%91%E5%88%9A
 //DSL查询，可以构建复杂查询
 ```
 
+使用php搜索
+
+```php
+public function searchHotel(Request $request){
+    $q = $request->input("q");
+    $city = $request->input("city");
+    $client = new Client();
+    $request_para = [
+        "query" => [
+            "bool" =>[
+                "must" => [
+                    [
+                        "match" => [ "name_cn"=>$q ]
+                    ],
+                    [
+                        "match" => [ "city_name_cn"=>$city ]
+                    ]
+                ]
+            ]
+        ],
+        "highlight"=> [
+//                "pre_tags"=> ["<b>"],
+//                "post_tags"=> ["</b>"],
+            "fields" => ["name_cn" => ["type"=> "plain"]]
+        ]
+    ];
+    $response = $client->request("GET","http://localhost:9200/hq_hotel/hotel/_search",
+        [
+            "json" => $request_para
+        ]);
+    if($response->getStatusCode() == 200){
+        $json_string =  $response->getBody()->getContents();
+
+
+        return response()->json(
+            [
+                'ok' => 0,
+                'msg' => 'ok',
+                'obj' => \GuzzleHttp\json_decode($json_string)
+            ]);
+    }
+}
+```
+
 
 
 使用python导入数据
@@ -45,9 +89,9 @@ import elasticsearch.helpers
 def es_hotels():
     print "start hotels"
     es = Elasticsearch()
-    
+
     set_mapping(es)
-    
+
     with open(city_json) as f:
         city_arr = json.load(f)
         f.close()
@@ -82,8 +126,8 @@ def es_hotels():
 
     print "end"
     now()
-    
-   
+
+
 # 设置索引规则，bulk之前调用一下 
 def set_mapping(es, index_name="hq_hotel", doc_type_name="hotel"):
     my_mapping = '''
