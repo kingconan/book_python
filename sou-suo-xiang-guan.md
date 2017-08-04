@@ -12,7 +12,7 @@
 
 访问 `http://localhost:9200/`可以看到一些信息
 
-通过url进行搜索
+##### 通过url进行搜索
 
 ```
 //travelid_db下的users表，id为1的数据
@@ -27,7 +27,7 @@ http://localhost:9200/travelid_db/users/_search?q=nickname:%E9%87%91%E5%88%9A
 //DSL查询，可以构建复杂查询
 ```
 
-使用php搜索
+##### 使用php搜索
 
 ```php
 public function searchHotel(Request $request){
@@ -71,7 +71,7 @@ public function searchHotel(Request $request){
 }
 ```
 
-使用python导入数据
+##### 使用python导入数据
 
 ```py
 # coding=utf-8
@@ -117,6 +117,11 @@ def es_hotels():
                     for d in hotel_arr
                 ]
                 elasticsearch.helpers.bulk(es, actions)
+                
+                #如果使用并行方法，记住parallel_bulk返回的是generator，所以要调用下
+                #from collections import deque
+                #deque(elasticsearch.helpers.parallel_bulk(es, actions), maxlen=0)
+                #
 
             if count % 100 == 0:
                 print count
@@ -160,6 +165,20 @@ def set_mapping(es, index_name="hq_hotel", doc_type_name="hotel"):
     print "create index"
     es.indices.create(index=index_name, body=my_mapping)
 ```
+
+##### ubuntu上部署
+
+安装java8或者open-jdk8
+
+设置源，参见[https://www.elastic.co/guide/en/elasticsearch/reference/1.7/setup-repositories.html](https://www.elastic.co/guide/en/elasticsearch/reference/1.7/setup-repositories.html)
+
+设置配置文件，把`network.host: 0.0.0.0` 内外网均可以可以访问
+
+`注意，服务重启是需要时间，所以立刻访问会出现 connection refused`
+
+直接下载部署时，要更改文件属性 `sudo chmod -R 777 es_folder`
+
+否则报奇怪的权限错误
 
 ### logstash
 
