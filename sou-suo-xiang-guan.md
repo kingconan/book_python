@@ -117,7 +117,7 @@ def es_hotels():
                     for d in hotel_arr
                 ]
                 elasticsearch.helpers.bulk(es, actions)
-                
+
                 #如果使用并行方法，记住parallel_bulk返回的是generator，所以要调用下
                 #from collections import deque
                 #deque(elasticsearch.helpers.parallel_bulk(es, actions), maxlen=0)
@@ -179,6 +179,38 @@ def set_mapping(es, index_name="hq_hotel", doc_type_name="hotel"):
 直接下载部署时，要更改文件属性 `sudo chmod -R 777 es_folder`
 
 否则报奇怪的权限错误
+
+
+
+```
+自启动的尴尬
+1. 在/etc/rc.local 加脚本
+2. 注意elsearch不能以root身份运行，运行切换到用户态，su ubuntu
+
+#!/bin/sh
+
+su ubuntu /data/es/elasticsearch-5.5.1/bin/elasticsearch &
+
+/data/es/kibana-5.5.1-linux-x86_64/bin/kibana & 
+```
+
+### kibana
+
+```
+1. 安装按照官方的文档
+2. index pattern : 加载动态index，主要为这类index，比如log，index名字是log-2015.07.08，日志按天划分
+其实应该是在同一index下的不同type的。但是kibana还是支持的。
+通常我们直接使用index就好，数据过滤都是通过fiter的_type来指定不同doc type
+3. 可认为是查询的可视化，还可以保存一点中间结果的
+```
+
+##### 使用visualize
+
+```
+1. filter 用来过滤数据，可使用查询语句来搞
+2. buckets 类似sql的group by
+3. metrics 是数据源的要显示的统计量
+```
 
 ### logstash
 

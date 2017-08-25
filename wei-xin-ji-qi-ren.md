@@ -99,6 +99,14 @@ kill -9 pid
 
 [https://github.com/fritx/awesome-wechat](https://github.com/fritx/awesome-wechat)
 
+web界面方案的链接
+
+[https://zhuanlan.zhihu.com/p/27586459](https://zhuanlan.zhihu.com/p/27586459)
+
+做的比较好的
+
+https://dongweiming.github.io/wechat-admin/
+
 ```
 微信群组思路
 1. fromUserName和toUserName分别是群组@@id和自己的@id
