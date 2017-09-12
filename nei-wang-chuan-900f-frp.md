@@ -7,7 +7,7 @@
 
 操作步骤
 
-1. 服务器上，根据系统下载对应版本的frp文件
+1 服务器上，根据系统下载对应版本的frp文件
 
 ```bash
 #ucloud hk ubuntu
@@ -33,9 +33,9 @@ auth_token = kingconan_mac
 ./frps -c frps.ini
 ```
 
-2. 客户端，根据系统版本下载对应frp文件
+2 客户端，根据系统版本下载对应frp文件
 
-```
+```bash
 #mac对应的是frp_0.12.0_darwin_amd64
 #删除服务器相关文件
 rm -f frps frps_full.ini frps.ini
@@ -73,13 +73,9 @@ custom_domains = 45.249.247.123
 2017/09/12 13:43:57 [I] [control.go:318] [0c2ee4505d0c8758] new proxy [web] success
 ```
 
-3. 访问公网IP `45.249.247.123:8082` 可以穿透到内网对应IP，本例中到了192.168.1.30的80端口对应的我的测试travelid网站
-
-
+3 访问公网IP `45.249.247.123:8082` 可以穿透到内网对应IP，本例中到了192.168.1.30的80端口对应的我的测试travelid网站
 
 ## 参考链接
 
- https://segmentfault.com/a/1190000009895225
-
-
+[https://segmentfault.com/a/1190000009895225](https://segmentfault.com/a/1190000009895225)
 
