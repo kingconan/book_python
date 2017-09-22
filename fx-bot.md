@@ -35,7 +35,7 @@ python ~/python/fx.py >> ~/python/`date +%Y-%m-%d.log`
 
 阿里云禁掉了`25`端口，所以要使用`ssl`方式发送，然而`envelopes`竟然不支持`ssl`方式，只能使用原始接口
 
-```
+```py
 def send_mail_ssl(address, title, content):
     message = MIMEText(content, 'plain', 'utf-8')
     message['From'] = Header('FX-BOT<fxbot@acefx.com.cn>', 'utf-8')
@@ -66,6 +66,45 @@ def send_mail_ssl(address, title, content):
         print '邮件发送失败, ', e.message
     except Exception, e:
         print '邮件发送异常, ', str(e)
+```
+
+## 部署
+
+python的部署直接放上去就好，定时器通过cron。
+
+phpmyadmin需要和nginx配合一下
+
+```
+server{  
+  # site configuration here
+  # ...
+  
+  
+  
+  
+  # Phpmyadmin Configurations
+    location /phpmyadmin {
+       root /usr/share/;
+       index index.php index.html index.htm;
+       location ~ ^/phpmyadmin/(.+\.php)$ {
+               try_files $uri =404;
+               root /usr/share/;
+               #fastcgi_pass 127.0.0.1:9000;
+               #fastcgi_param HTTPS on; # <-- add this line
+               fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+               fastcgi_index index.php;
+               fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+               include fastcgi_params;
+       }
+       location ~* ^/phpmyadmin/(.+\.(jpg|jpeg|gif|css|png|js|ico|html|xml|txt))$ {
+               root /usr/share/;
+       }
+   }
+
+   location /phpMyAdmin {
+       rewrite ^/* /phpmyadmin last;
+   }
+}
 ```
 
 
