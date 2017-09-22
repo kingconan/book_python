@@ -38,7 +38,7 @@ python ~/python/fx.py >> ~/python/`date +%Y-%m-%d.log`
 ```py
 def send_mail_ssl(address, title, content):
     message = MIMEText(content, 'plain', 'utf-8')
-    message['From'] = Header('FX-BOT<fxbot@acefx.com.cn>', 'utf-8')
+    message['From'] = Header('FX-BOT', 'utf-8')
     message['To'] = Header('VIPs', 'utf-8')
     message['Subject'] = Header(title, 'utf-8')
 
@@ -74,14 +74,14 @@ python的部署直接放上去就好，定时器通过cron。
 
 phpmyadmin需要和nginx配合一下
 
-```
+```bash
 server{  
   # site configuration here
   # ...
-  
-  
-  
-  
+
+
+
+
   # Phpmyadmin Configurations
     location /phpmyadmin {
        root /usr/share/;
@@ -106,8 +106,6 @@ server{
    }
 }
 ```
-
-
 
 
 
