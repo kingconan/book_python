@@ -17,4 +17,5 @@
 * [git慢](gitman.md)
 * [fx-bot](fx-bot.md)
 * [python-decorator](python-decorator.md)
+* [python-redis](python-redis.md)
 
