@@ -12,6 +12,11 @@ import redis
 r = redis.Redis(host="127.0.0.1", port=6379, db=0)
 r.set("k1", "hello world")
 r.get("k1")
+r.keys()
+r.dbsize()
+r.delete("k1")
+r.save() #将数据写回磁盘，保存时阻塞
+r.flushdb() #清空r中数据
 ```
 
 
