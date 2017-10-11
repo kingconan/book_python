@@ -16,4 +16,5 @@
 * [内网穿透-frp](nei-wang-chuan-900f-frp.md)
 * [git慢](gitman.md)
 * [fx-bot](fx-bot.md)
+* [python-decorator](python-decorator.md)
 
