@@ -19,7 +19,7 @@ r.save() #将数据写回磁盘，保存时阻塞
 r.flushdb() #清空r中数据
 
 
-#redis学习再看文档请
+#redis学习再看文档请 https://pypi.python.org/pypi/redis/2.9.1
 ```
 
 
