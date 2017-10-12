@@ -18,4 +18,5 @@
 * [fx-bot](fx-bot.md)
 * [python-decorator](python-decorator.md)
 * [python-redis](python-redis.md)
+* [python总结](pythonzong-jie.md)
 
