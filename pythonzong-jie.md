@@ -29,8 +29,6 @@ r.flushdb() #清空r中数据
 #redis学习再看文档请 https://pypi.python.org/pypi/redis/2.9.1
 ```
 
-
-
 ## python装饰器
 
 ```py
