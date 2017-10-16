@@ -87,5 +87,41 @@ class logit(object):
         pass
 ```
 
+## FLASK
+
+```bash
+fx_app //项目文件夹
+├── fx_app //项目主文件夹
+│   ├── __init__.py //模块初始化
+│   ├── static //css，js等资源文件
+│   │   ├── css
+│   │   │   ├── bootstrap-theme.min.css
+│   │   │   └── bootstrap.min.css
+│   │   ├── fonts
+│   │   │   ├── glyphicons-halflings-regular.eot
+│   │   │   ├── glyphicons-halflings-regular.svg
+│   │   │   ├── glyphicons-halflings-regular.ttf
+│   │   │   ├── glyphicons-halflings-regular.woff
+│   │   │   └── glyphicons-halflings-regular.woff2
+│   │   ├── images
+│   │   └── js
+│   │       ├── bootstrap.min.js
+│   │       ├── jquery.ajaxupload.js
+│   │       └── jquery.js
+│   ├── templates //布局相关文件
+│   │   ├── index.html
+│   │   ├── layout.html //base 模板文件
+│   │   └── upload.html
+│   ├── upload
+│   │   └── Smartrade_International_Co._Ltd_MT4_PL_September_2017.xlsx
+│   ├── util
+│   ├── views.py
+│   └── views.pyc
+├── instance //私有配置文件
+│   └── config.py
+└── run.py //入口函数
+
+```
+
 
 
