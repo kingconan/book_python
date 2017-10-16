@@ -92,35 +92,140 @@ class logit(object):
 ```bash
 fx_app //项目文件夹
 ├── fx_app //项目主文件夹
-│   ├── __init__.py //模块初始化
-│   ├── static //css，js等资源文件
-│   │   ├── css
-│   │   │   ├── bootstrap-theme.min.css
-│   │   │   └── bootstrap.min.css
-│   │   ├── fonts
-│   │   │   ├── glyphicons-halflings-regular.eot
-│   │   │   ├── glyphicons-halflings-regular.svg
-│   │   │   ├── glyphicons-halflings-regular.ttf
-│   │   │   ├── glyphicons-halflings-regular.woff
-│   │   │   └── glyphicons-halflings-regular.woff2
-│   │   ├── images
-│   │   └── js
-│   │       ├── bootstrap.min.js
-│   │       ├── jquery.ajaxupload.js
-│   │       └── jquery.js
-│   ├── templates //布局相关文件
-│   │   ├── index.html
-│   │   ├── layout.html //base 模板文件
-│   │   └── upload.html
-│   ├── upload
-│   │   └── Smartrade_International_Co._Ltd_MT4_PL_September_2017.xlsx
-│   ├── util
-│   ├── views.py
-│   └── views.pyc
+│   ├── __init__.py //模块初始化
+│   ├── static //css，js等资源文件
+│   │   ├── css
+│   │   │   ├── bootstrap-theme.min.css
+│   │   │   └── bootstrap.min.css
+│   │   ├── fonts
+│   │   │   ├── glyphicons-halflings-regular.eot
+│   │   │   ├── glyphicons-halflings-regular.svg
+│   │   │   ├── glyphicons-halflings-regular.ttf
+│   │   │   ├── glyphicons-halflings-regular.woff
+│   │   │   └── glyphicons-halflings-regular.woff2
+│   │   ├── images
+│   │   └── js
+│   │       ├── bootstrap.min.js
+│   │       ├── jquery.ajaxupload.js
+│   │       └── jquery.js
+│   ├── templates //布局相关文件
+│   │   ├── index.html
+│   │   ├── layout.html //base 模板文件
+│   │   └── upload.html
+│   ├── upload
+│   │   └── Smartrade_International_Co._Ltd_MT4_PL_September_2017.xlsx
+│   ├── util
+│   ├── views.py
+│   └── views.pyc
 ├── instance //私有配置文件
-│   └── config.py
+│   └── config.py
 └── run.py //入口函数
+```
 
+```py
+//run.py
+# -*- coding: utf-8 -*-
+
+from fx_app import app
+app.run(debug=True)
+```
+
+```py
+//fx_app/__init__.py
+# -*- coding: utf-8 -*-
+
+from flask import Flask
+app = Flask(__name__)
+
+import fx_app.views
+```
+
+```py
+//fx_app/views.py
+# -*- coding: utf-8 -*-
+
+from flask import Flask, request, redirect, jsonify
+from flask import render_template
+from werkzeug.utils import secure_filename
+import os
+
+from . import app
+
+UPLOAD_FOLDER = os.path.abspath('./fx_app/upload')
+
+from excel_task import parse_fx_excel
+
+@app.route("/cal")
+def cal():
+    return "Hell world"
+
+
+@app.route("/")
+def index():
+    return render_template("index.html",name="index")
+
+
+@app.route("/upload", methods=['GET', 'POST'])
+def upload():
+    if request.method == 'POST':
+        if 'file' not in request.files:
+            return redirect(request.url)
+        file = request.files["file"]
+        if file.filename == '':
+            return redirect(request.url)
+
+        if file:
+            folder = os.path.join(UPLOAD_FOLDER)
+            filename = secure_filename(file.filename)
+            print folder
+            filepath = os.path.join(folder, filename)
+            file.save(filepath)
+
+            data = parse_fx_excel(filepath)
+
+            return jsonify({
+                "ok": 0,
+                "msg": "ok",
+                "obj": data
+            })
+
+    return render_template("upload.html", name="upload")
+```
+
+```
+//layout.html
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css" />
+      <style>
+          html,body{
+              height: 100%;
+              padding: 0;
+              margin: 0;
+          }
+      </style>
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    {% endblock %}
+  </head>
+  <body>
+    <div id="content" style="height: 100%;width: 100%;">{% block content %}{% endblock %}</div>
+    <div id="footer" style="text-align: center;background-color: #3c3c3c;padding: 60px;color:grey">
+      {% block footer %}
+      &copy; Copyright 2017
+      {% endblock %}
+    </div>
+
+    {% block js %}
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery.ajaxupload.js') }}"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    {% endblock %}
+  </body>
+</html>
 ```
 
 
