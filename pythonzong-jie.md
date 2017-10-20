@@ -89,6 +89,8 @@ class logit(object):
 
 ## FLASK
 
+部署flask，Flask+Gunicorn+Gevent+Supervisor+Nginx 或者 flask + wsgi + nginx
+
 ```bash
 fx_app //项目文件夹
 ├── fx_app //项目主文件夹
@@ -192,7 +194,7 @@ def upload():
     return render_template("upload.html", name="upload")
 ```
 
-```
+```html
 //layout.html
 <!doctype html>
 <html>
@@ -226,6 +228,62 @@ def upload():
     {% endblock %}
   </body>
 </html>
+```
+
+```html
+//upload.html
+{% extends "layout.html" %}
+{% block title %}Upload{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+<div style="padding: 30px;text-align: center;width: 600px;margin-left: auto;margin-right: auto">
+    <p style="background-color: lightblue;padding: 30px;line-height: 28px;font-size: 14px">
+        功能说明，啊哈哈哈，这里是功能说明
+    </p>
+    <div style="text-align:center;padding:20px;border:1px dashed #909090;" id="promptzone">
+        click to upload
+    </div>
+    <div id="progressbar"></div>
+    <div id="result"></div>
+</div>
+{% endblock %}
+{% block js %}
+{{ super() }}
+<script>
+    jQuery(function ($) {
+    $.ajaxUploadSettings.name = 'file';
+
+    $('#promptzone').ajaxUploadPrompt({
+        url : 'upload',
+        beforeSend : function () {
+            $('#promptzone, #result').hide();
+        },
+        onprogress : function (e) {
+            if (e.lengthComputable) {
+                var percentComplete = e.loaded / e.total;
+                // Show in progressbar
+                $( "#progressbar" ).progressbar({
+                    value: percentComplete*100,
+                    complete: function () {
+                        $(this).progressbar( "destroy" );
+                        $("#result").show()
+                        $("#result").text("上传成功，数据处理中...")
+                    }
+                });
+            }
+        },
+        error : function () {
+        },
+        success : function (data) {
+            console.log(data)
+            $("#result").text("处理完成")
+        }
+    });
+});
+</script>
+{% endblock %}
 ```
 
 
