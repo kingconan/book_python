@@ -89,7 +89,7 @@ class logit(object):
 
 ## FLASK
 
-部署flask，Flask+Gunicorn+Gevent+Supervisor+Nginx 或者 flask + wsgi + nginx
+部署flask，Flask+Gunicorn+Gevent+Supervisor+Nginx 或者 flask + uWSGI + nginx
 
 ```bash
 fx_app //项目文件夹
