@@ -286,5 +286,13 @@ def upload():
 {% endblock %}
 ```
 
+## Flask的推送思路
+
+```
+1. sse，server send event,单项，服务器端推客户端，利用stream流，类似下载的方式。
+需要浏览器支持EventSource。flask-sse
+2. websocket，双向，服务器客户端各自实现websocket协议。flask-socketio
+```
+
 
 

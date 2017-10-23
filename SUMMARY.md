@@ -17,4 +17,5 @@
 * [git慢](gitman.md)
 * [fx-bot](fx-bot.md)
 * [python总结](pythonzong-jie.md)
+* [android](android.md)
 
