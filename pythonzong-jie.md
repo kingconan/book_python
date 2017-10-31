@@ -292,6 +292,31 @@ def upload():
 1. sse，server send event,单项，服务器端推客户端，利用stream流，类似下载的方式。
 需要浏览器支持EventSource。flask-sse
 2. websocket，双向，服务器客户端各自实现websocket协议。flask-socketio
+
+https://stackoverflow.com/questions/5195452/websockets-vs-server-sent-events-eventsource
+
+TLDR summary:
+
+Advantages of SSE over Websockets:
+
+Transported over simple HTTP instead of a custom protocol
+Can be poly-filled with javascript to "backport" SSE to browsers that do not support it yet.
+Built in support for re-connection and event-id
+Simpler protocol
+Advantages of Websockets over SSE:
+
+Real time, two directional communication.
+Native support in more browsers
+Ideal use cases of SSE:
+
+Stock ticker streaming
+twitter feed updating
+Notifications to browser
+SSE gotchas:
+
+No binary support
+Maximum open connections limit
+
 ```
 
 
