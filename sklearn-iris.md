@@ -8,7 +8,8 @@
 
 ```
 1. Bayesian network, belief network or directed acyclic graphical model，有向无环模型
-2. 应用之一是，医学诊断，根据症状判断疾病
+
+2. 应用之一是，医学诊断，根据症状判断疾病。可以筛选结构？？
 3. 概率基本公式的直观了解，画几个圈圈就好了
 P(A,B) = P(A|B)P(B)
 =>链式法则 P(xn,xn-1,...,x1) = P(xn|xn-1,xn-2,...,x1)P(xn-1|xn-2,...,x1)...P(x1)
