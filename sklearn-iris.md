@@ -10,11 +10,14 @@
 1. Bayesian network, belief network or directed acyclic graphical model，有向无环模型
 2. 应用之一是，医学诊断，根据症状判断疾病
 3. 概率基本公式的直观了解，画几个圈圈就好了
+P(A,B) = P(A|B)P(B)
+=>链式法则 P(xn,xn-1,...,x1) = P(xn|xn-1,xn-2,...,x1)P(xn-1|xn-2,...,x1)...P(x1)
+
 
 P(A|B) = P(A,B) / P(B)
 P(B|A) = P(A,B) / P(A)
 P(A|B)P(B) = P(B|A)P(A)
-=> P(A|B) = P(B|A)P(A)/P(B)
+=>贝叶斯推理 P(A|B) = P(B|A)P(A)/P(B)
 我们令 A = 分类，B = 证据，就可以推断出，当证据出现时对应的分类。 P(分类） P(证据） P(证据|分类) 可以获得
 
 
@@ -23,7 +26,6 @@ x1    x2    xn   P
 T     T     F    ?
 
 但是如果可以构建x1,x2,...,xn的一个贝叶斯网络，就可以根据独立性简化问题。
-
 ```
 
 #### Boosting
