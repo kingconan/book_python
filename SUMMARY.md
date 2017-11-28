@@ -19,4 +19,5 @@
 * [python总结](pythonzong-jie.md)
 * [android](android.md)
 * [CSP](csp.md)
+* [翻译-CQRS](fan-8bd1-cqrs.md)
 
